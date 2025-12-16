@@ -6,6 +6,49 @@ _[Milky](https://github.com/SaltifyDev/milky) protocol implementation based on [
 
 </div>
 
+## Build
+
+### Using GitHub Actions
+
+The repository includes a GitHub Actions workflow for building Lagrange.Milky. The workflow supports:
+
+- **Windows (x64)**
+- **macOS (ARM64)**
+- **Linux (x64)**
+- **Linux (ARM64)**
+
+#### Automatic Triggers
+
+The build workflow runs automatically when:
+- Changes are pushed to the `main` branch affecting Lagrange.Milky or its dependencies
+- A pull request is opened targeting the `main` branch with relevant changes
+
+#### Manual Trigger
+
+To manually trigger a build:
+
+1. Go to the [Actions tab](../../actions) in the GitHub repository
+2. Select **"Build Lagrange.Milky"** workflow from the left sidebar
+3. Click **"Run workflow"** button
+4. Select the branch and click **"Run workflow"**
+
+After the build completes, you can download the artifacts from the workflow run page.
+
+### Local Build
+
+To build locally, ensure you have .NET 10 SDK installed, then run:
+
+```bash
+dotnet publish Lagrange.Milky -c Release -r <runtime-identifier>
+```
+
+Where `<runtime-identifier>` is one of: `win-x64`, `osx-arm64`, `linux-x64`, `linux-arm64`.
+
+For Linux builds, you may need to install additional dependencies:
+```bash
+sudo apt-get update && sudo apt-get install -y clang zlib1g-dev
+```
+
 ## Document
 
 https://lagrangedev.github.io/Lagrange.Milky.Document
